@@ -1,5 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+
+// ================ HEADER DATA ============
 const headerData = [
     {
         path:'/',
@@ -18,8 +20,9 @@ const headerData = [
         name:'blog',
     },
 ]
+
 const Header = () => {
-    const li = headerData.map((item)=><li><Link to={`${item.path}`}>{item.name}</Link></li>)
+    const li = headerData.map((item)=><li><NavLink to={`${item.path}`} className={({isActive})=>isActive?'active':'default'}>{item.name}</NavLink></li>)
   return (
     <div className='w-full my-3'>
       <div className='flex items-center justify-between container mx-auto w-[90%]'>
