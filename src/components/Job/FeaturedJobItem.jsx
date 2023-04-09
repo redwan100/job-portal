@@ -1,0 +1,39 @@
+import React from 'react'
+import {MapPinIcon, CurrencyDollarIcon} from '@heroicons/react/24/outline'
+import Button from '../Button';
+const FeaturedJobItem = ({job}) => {
+
+    const {companyImage,companyName,title,jobTypes,location, salary} = job;
+  return (
+    <div className="border border-blue-300/30 p-4 flex flex-col justify-between rounded-md shadow-sm">
+      <div>
+        <img className="mb-3" src={companyImage} alt="" />
+        <h1 className="font-semibold text-lg">{title}</h1>
+        <h2 className="text-sm mb-2 text-gray-600">{companyName}</h2>
+        <div>
+          {jobTypes?.map((jobType) => (
+            <button className="border py-1 px-2 mr-2 text-[#9873FF] border-[#9873FF] font-semibold text-sm rounded-sm">
+              {jobType}
+            </button>
+          ))}
+        </div>
+
+        <div className="my-3 font-medium text-gray-700">
+          <p className="flex items-center gap-1 text-xs">
+            <MapPinIcon className="w-4" /> {location}
+          </p>
+          <p className="flex gap-1 text-xs mt-1">
+            <CurrencyDollarIcon className="w-4" />
+            {salary}
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <Button>View Details</Button>
+      </div>
+    </div>
+  );
+}
+
+export default FeaturedJobItem

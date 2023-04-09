@@ -2,8 +2,19 @@ import React from 'react'
 import Button from './Button';
 import HeroImg from '../assets/All Images/P3OLGJ1 copy 1.png'
 import JobCategoryList from './JobCategoryList';
+import { useLoaderData } from 'react-router-dom';
+import FeaturedJobItem from './Job/FeaturedJobItem';
+import Title from './Title';
 
+
+
+const title = `Featured Jobs`;
+const desc = `Explore thousands of job opportunities with all the information you
+        need. Its your future`;
 const Home = () => {
+  const data = useLoaderData();
+  console.log(data);
+
 
   return (
     <div className="w-full mt-8 p-3">
@@ -31,8 +42,20 @@ const Home = () => {
         </div>
       </div>
 
-      <section className='mt-10'>
+      <section className="mt-10">
         <JobCategoryList />
+      </section>
+
+      <section className="my-12">
+        <div className='my-5'>
+          <Title title={title} desc={desc} />
+        </div>
+
+        <div className="grid gap-4 grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))]">
+          {data.map((job) => (
+            <FeaturedJobItem key={job.id} job={job} />
+          ))}
+        </div>
       </section>
     </div>
   );

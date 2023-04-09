@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "companyImage": "../src/assets/All Images/CareerHub.png",
+    "title": "Software Engineer",
+    "phone": "123-456-7890",
+    "email": "hr@example.com",
+    "companyName": "Example Company",
+    "location": "San Francisco, CA",
+    "salary": "$100,000 - $120,000 per year",
+    "jobTypes": ["Remote", "Full-time"],
+    "jobDescription": "We are seeking a talented software engineer to join our team and help build innovative software solutions.",
+    "jobResponsibility": "Design, develop, test, deploy, maintain, and improve software.",
+    "educationalRequirements": "Bachelor's degree in Computer Science or related field.",
+    "experiences": "Minimum of 3 years of experience in software engineering."
+  },
+  {
+    "id": 2,
+    "companyImage": "../src/assets/All Images/Group 10021.png",
+    "title": "Marketing Manager",
+    "phone": "987-654-3210",
+    "email": "hr@anothercompany.com",
+    "companyName": "Another Company",
+    "location": "New York, NY",
+    "salary": "$80,000 - $100,000 per year",
+    "jobTypes": ["Full-time"],
+    "jobDescription": "We are looking for a talented Marketing Manager to join our team and help drive growth for our business.",
+    "jobResponsibility": "Develop and implement marketing strategies, manage campaigns, analyze data, and report on results.",
+    "educationalRequirements": "Bachelor's degree in Marketing or related field.",
+    "experiences": "Minimum of 5 years of experience in marketing."
+  },
+  {
+    "id": 3,
+    "companyImage": "../src/assets/All Images/tesla-9 1.png",
+    "title": "Graphic Designer",
+    "phone": "555-123-4567",
+    "email": "hr@designco.com",
+    "companyName": "Design Co.",
+    "location": "Los Angeles, CA",
+    "salary": "$60,000 - $80,000 per year",
+    "jobTypes": ["Full-time"],
+    "jobDescription": "We are seeking a talented Graphic Designer to join our team and help create beautiful designs for our clients.",
+    "jobResponsibility": "Create designs for print and digital media, collaborate with clients and team members, and deliver projects on time.",
+    "educationalRequirements": "Bachelor's degree in Graphic Design or related field.",
+    "experiences": "Minimum of 3 years of experience in graphic design."
+  }
+]
