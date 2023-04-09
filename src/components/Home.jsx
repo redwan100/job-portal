@@ -4,6 +4,7 @@ import HeroImg from '../assets/All Images/P3OLGJ1 copy 1.png'
 import JobCategoryList from './JobCategoryList';
 
 const Home = () => {
+
   return (
     <div className="w-full mt-8 p-3">
       <div className="grid gap-3 sm:grid-cols-2 items-center justify-center">

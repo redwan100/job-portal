@@ -1,36 +1,53 @@
-import React from 'react'
-
+import {
+  ComputerDesktopIcon,
+  LightBulbIcon,
+  ChartPieIcon,
+  SwatchIcon,
+} from "@heroicons/react/24/solid";
+import Title from "./Title";
+import Job from "./Job/Job";
 let jobList = [
   {
     id: 1,
     title: "Software Engineer",
-    jobAvailable: true,
-    number: 3,
+    jobAvailable: "300 Jobs available",
+    icon: ComputerDesktopIcon,
   },
   {
     id: 2,
     title: "Marketing Manager",
-    jobAvailable: false,
-    number: 0,
+    jobAvailable: "350 Jobs available",
+    icon: LightBulbIcon,
   },
   {
     id: 3,
     title: "Graphic Designer",
-    jobAvailable: true,
-    number: 2,
+    jobAvailable: "100 Jobs available",
+    icon: SwatchIcon,
   },
   {
     id: 4,
     title: "Sales Associate",
-    jobAvailable: true,
-    number: 5,
+    jobAvailable: "200 Jobs available",
+    icon: ChartPieIcon,
   },
 ];
 
+const title = `Job Category List`;
+const desc = `Explore thousands of job opportunities with all the information you
+        need. Its your future`;
 const JobCategoryList = () => {
   return (
-    <div>JobCategoryList</div>
-  )
-}
+    <>
+      <Title title={title} desc={desc} />
 
-export default JobCategoryList
+      <div className="w-full block grid justify-center gap-6 grid-cols-[repeat(auto-fit,minmax(230px,_1fr))]">
+        {
+            jobList.map(job=><Job key={job.id} {...job}/>)
+        }
+      </div>
+    </>
+  );
+};
+
+export default JobCategoryList;
