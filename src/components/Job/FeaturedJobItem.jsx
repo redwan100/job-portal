@@ -1,9 +1,9 @@
 import React from 'react'
 import {MapPinIcon, CurrencyDollarIcon} from '@heroicons/react/24/outline'
+import {Link} from 'react-router-dom'
 import Button from '../Button';
-const FeaturedJobItem = ({job}) => {
-
-    const {companyImage,companyName,title,jobTypes,location, salary} = job;
+const FeaturedJobItem = ({ job}) => {
+  const { companyImage, companyName, title, jobTypes, location, salary, id } = job;
   return (
     <div className="border border-blue-300/30 p-4 flex flex-col justify-between rounded-md shadow-sm">
       <div>
@@ -29,11 +29,13 @@ const FeaturedJobItem = ({job}) => {
         </div>
       </div>
 
-      <div>
-        <Button>View Details</Button>
-      </div>
+      <Link to={`jobdetails/${id}`}>
+        <div>
+          <Button>View Details</Button>
+        </div>
+      </Link>
     </div>
   );
-}
+};
 
 export default FeaturedJobItem

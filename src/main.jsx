@@ -4,33 +4,38 @@ import App from './App'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AppliedJob, Blog, Home, Statics } from './components';
+import JobDetails from './components/Job/JobDetails';
 
 
 const router = createBrowserRouter([
   {
-    path:'/',
-    element:<App />,
-    children:[
+    path: "/",
+    element: <App />,
+    children: [
       {
-        path:'/',
-        element:<Home />,
-        loader:()=>fetch('futured.json')
+        path: "/",
+        element: <Home />,
       },
       {
-        path:'statics',
-        element:<Statics />
+        path: "statics",
+        element: <Statics />,
       },
       {
-        path:'jobs',
-        element:<AppliedJob />
+        path: "jobs",
+        element: <AppliedJob />,
       },
       {
-        path:'blog',
-        element:<Blog />
+        path: "jobdetails/:jobId",
+        element: <JobDetails />,
       },
-    ]
-  }
-])
+      
+      {
+        path: "blog",
+        element: <Blog />,
+      },
+    ],
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
