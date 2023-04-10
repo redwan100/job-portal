@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {MapPinIcon, PhoneIcon,EnvelopeIcon, CurrencyDollarIcon, CalendarDaysIcon} from '@heroicons/react/24/outline'
-import Button from "../Button";
+import { addToDb, getShoppingCart } from "../../utils/fakeDb";
 const JobDetails = () => {
   const dynamic = useParams();
   const [jobs, setJob] = useState([]);
-
+const [cart, setCart] = useState([]);
   useEffect(() => {
     const handleData = async () => {
       const res = await fetch(`../../../public/futured.json`);
@@ -21,6 +21,29 @@ const JobDetails = () => {
     const f = jobs.find((job) => job.id == dynamic.jobId);
     setJob(f);
   }
+
+  useEffect(() => {
+    const storedCart = getShoppingCart();
+    const savedCart = [];
+    for (const id in storedCart) {
+      const addedProduct = jobs.find((product) => product.id === id);
+      if (addedProduct) {
+        const quantity = storedCart[id];
+        addedProduct.quantity = quantity;
+        savedCart.push(addedProduct);
+      }
+    }
+    setCart(savedCart);
+  }, []);
+
+
+     const handleAddToCart = (product) => {
+        const newCart = [...cart, product];
+        setCart(newCart);
+        addToDb(product.id);
+     };
+
+
 
   return (
     <div className="py-12">
@@ -127,7 +150,12 @@ const JobDetails = () => {
           </div>
 
           <div className="w-full">
-            <button className="gradient w-full my-2">Apply Now</button>
+            <button
+              onClick={() => handleAddToCart(jobs)}
+              className="gradient w-full my-2"
+            >
+              Apply Now
+            </button>
           </div>
         </div>
       </div>

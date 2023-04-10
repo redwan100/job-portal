@@ -8,23 +8,27 @@ import { useEffect, useState } from 'react';
 
 
 
+
 const title = `Featured Jobs`;
 const desc = `Explore thousands of job opportunities with all the information you
         need. Its your future`;
 
 const Home = () => {
   // const job = useLoaderData();
+  const [jobs, setJobs] = useState([]);
 
-   const [jobs, setJobs] = useState([]);
+
    useEffect(() => {
-     const handle = async () => {
+     const loadData = async () => {
        const res = await fetch(`../../../public/futured.json`);
        const data = await res.json();
 
        setJobs(data);
      };
-     handle();
+     loadData();
    }, []);
+
+
   return (
     <div className="w-full mt-8 p-3">
       <div className="grid gap-3 sm:grid-cols-2 items-center justify-center">
@@ -61,10 +65,10 @@ const Home = () => {
         </div>
 
         <div className="grid gap-4 grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))]">
-          {jobs.map((j) => (
+          {jobs.map((job) => (
             <FeaturedJobItem
-              key={j.id}
-              job={j}
+              key={job.id}
+              job={job}
             />
           ))}
         </div>

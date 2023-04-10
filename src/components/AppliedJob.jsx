@@ -1,9 +1,42 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import { getShoppingCart } from "../utils/fakeDb";
+import SingleAppliedJob from "./SingleAppliedJob";
 
 const AppliedJob = () => {
-  return (
-    <div>AppliedJob</div>
-  )
-}
+  const [jobs, setJobs] = useState([]);
+  const [allJob, setAllJob] = useState([]);
+  useEffect(() => {
+    fetch("futured.json")
+      .then((res) => res.json())
+      .then((data) => setJobs(data));
+  }, []);
 
-export default AppliedJob
+  useEffect(() => {
+    const storedCart = getShoppingCart();
+    console.log("stored", storedCart);
+    const savedCart = [];
+    for (const id in storedCart) {
+      console.log("id", id);
+      const addedProduct = jobs.find((product) => product.id == id);
+      if (addedProduct) {
+        const quantity = storedCart[id];
+        addedProduct.quantity = quantity;
+        savedCart.push(addedProduct);
+      }
+    }
+    setAllJob(savedCart);
+  }, [jobs]);
+
+  console.log("all job", allJob);
+  return (
+    <div>
+      <div>
+        {allJob.map((job) => (
+          <SingleAppliedJob {...job}/>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default AppliedJob;
