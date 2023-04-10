@@ -2,7 +2,7 @@ import React from 'react'
 
 const Button = ({children}) => {
   return (
-    <button className='gradient'>{children}</button>
+    <button className='gradient btn'>{children}</button>
   )
 }
 

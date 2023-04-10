@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import {MapPinIcon} from '@heroicons/react/24/outline'
+import {MapPinIcon, PhoneIcon,EnvelopeIcon, CurrencyDollarIcon, CalendarDaysIcon} from '@heroicons/react/24/outline'
+import Button from "../Button";
 const JobDetails = () => {
   const dynamic = useParams();
   const [jobs, setJob] = useState([]);
@@ -22,12 +23,12 @@ const JobDetails = () => {
   }
 
   return (
-    <div className="py-8">
+    <div className="py-12">
       <h1 className="text-3xl font-semibold text-center my-7 mt-8">
         {jobs.title} Job Details
       </h1>
 
-      <div>
+      <div className="w-full grid md:grid-cols-[2fr,_1fr] gap-10 md:gap-4 justify-center items-start">
         {/* =========JOB DATA  =========== */}
         <div className="space-y-6">
           <div>
@@ -62,12 +63,71 @@ const JobDetails = () => {
         </div>
 
         {/* ============= JOB CARD DATA ========== */}
-        <div></div>
-        <div className="border p-3">
-          <h1>Job Details</h1>
 
-          <div>
-            <MapPinIcon className="w-5"/>
+        <div>
+          <div className="p-[1rem_1rem_2rem_2rem] bg-[#9873ff]/10 backdrop-blur-md rounded-md relative">
+            <h1 className="text-lg font-semibold py-2 border-b">Job Details</h1>
+
+            <div className="mt-3">
+              <div className="flex items-center gap-1">
+                <CurrencyDollarIcon className="w-5 text-[#9873ff]" />
+                <p className="font-semibold">
+                  Salary:{" "}
+                  <span className="font-normal text-gray-700 text-sm">
+                    {jobs.salary}
+                  </span>
+                </p>
+              </div>
+
+              <div className="flex items-center gap-1">
+                <CalendarDaysIcon className="w-5 text-[#9873ff]" />
+                <p className="font-semibold">
+                  Job Title:{" "}
+                  <span className="font-normal text-gray-700 text-sm">
+                    {jobs.title}
+                  </span>
+                </p>
+              </div>
+
+              <h1 className="text-lg font-semibold border-b mt-5 mb-1 pb-1">
+                Contact Information
+              </h1>
+              <div className="space-y-2">
+                <div className="flex items-center gap-1">
+                  <PhoneIcon className="w-5 text-[#9873ff]" />
+                  <p className="font-semibold">
+                    Phone:{" "}
+                    <span className="font-normal text-gray-700">
+                      {jobs.phone}
+                    </span>
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-1">
+                  <EnvelopeIcon className="w-5 text-[#9873ff]" />
+                  <p className="font-semibold">
+                    Email:{" "}
+                    <span className="font-normal text-gray-700">
+                      {jobs.email}
+                    </span>
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-1">
+                  <MapPinIcon className="w-5 text-[#9873ff]" />
+                  <p className="font-semibold">
+                    Address:{" "}
+                    <span className="font-normal text-gray-700">
+                      {jobs.location}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full">
+            <button className="gradient w-full my-2">Apply Now</button>
           </div>
         </div>
       </div>

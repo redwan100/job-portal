@@ -1,6 +1,7 @@
 import Button from './Button';
 import HeroImg from '../assets/All Images/P3OLGJ1 copy 1.png'
 import JobCategoryList from './JobCategoryList';
+
 import FeaturedJobItem from './Job/FeaturedJobItem';
 import Title from './Title';
 import { useEffect, useState } from 'react';
