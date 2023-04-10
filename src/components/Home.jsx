@@ -14,9 +14,8 @@ const desc = `Explore thousands of job opportunities with all the information yo
         need. Its your future`;
 
 const Home = () => {
-  // const job = useLoaderData();
   const [jobs, setJobs] = useState([]);
-
+  const [isShow, setIsShow] = useState(false)
 
    useEffect(() => {
      const loadData = async () => {
@@ -64,14 +63,17 @@ const Home = () => {
           <Title title={title} desc={desc} />
         </div>
 
-        <div className="grid gap-4 grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))]">
-          {jobs.map((job) => (
-            <FeaturedJobItem
-              key={job.id}
-              job={job}
-            />
-          ))}
+        <div className="grid gap-4 md:grid-cols-2">
+          {isShow
+            ? jobs.map((job) => <FeaturedJobItem key={job.id} job={job} />)
+            : jobs
+                .slice(0, 4)
+                .map((job) => <FeaturedJobItem key={job.id} job={job} />)}
         </div>
+
+        {!isShow && (
+          <button className="gradient mx-auto block my-8" onClick={()=>setIsShow(true)}>Show All</button>
+        )}
       </section>
     </div>
   );

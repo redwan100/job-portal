@@ -7,7 +7,8 @@ const SingleAppliedJob = ({
   companyName,
   jobTypes,
   location,
-  salary
+  salary,
+  id
 }) => {
   return (
     <div className="border p-2 flex justify-between items-center">
@@ -48,7 +49,7 @@ const SingleAppliedJob = ({
       </div>
 
       <div>
-        <Link>
+        <Link to={`/jobdetails/${id}`}>
           <button className="gradient">View Details</button>
         </Link>
       </div>

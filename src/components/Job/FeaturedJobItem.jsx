@@ -13,18 +13,18 @@ const FeaturedJobItem = ({ job }) => {
         <h2 className="text-sm mb-2 text-gray-600">{companyName}</h2>
         <div>
           {jobTypes?.map((jobType) => (
-            <button className="border py-1 px-2 mr-2 text-[#9873FF] border-[#9873FF] font-semibold text-sm rounded-sm">
+            <button className="border py-1 px-2 mr-2 text-[#7144eb] border-[#9873FF] font-semibold text-sm rounded-sm">
               {jobType}
             </button>
           ))}
         </div>
 
-        <div className="my-3 font-medium text-gray-700">
+        <div className="my-3 font-medium text-gray-700 sm:flex  gap-4">
           <p className="flex items-center gap-1 text-xs">
-            <MapPinIcon className="w-4" /> {location}
+            <MapPinIcon className="w-4 text-[#9873ff]" /> {location}
           </p>
           <p className="flex gap-1 text-xs mt-1">
-            <CurrencyDollarIcon className="w-4" />
+            <CurrencyDollarIcon className="w-4 text-[#9873ff]" />
             {salary}
           </p>
         </div>
