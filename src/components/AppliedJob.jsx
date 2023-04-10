@@ -30,7 +30,7 @@ const AppliedJob = () => {
   console.log("all job", allJob);
   return (
     <div>
-      <div>
+      <div className="space-y-3">
         {allJob.map((job) => (
           <SingleAppliedJob {...job}/>
         ))}
