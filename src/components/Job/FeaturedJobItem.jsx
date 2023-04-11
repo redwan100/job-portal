@@ -5,14 +5,12 @@ import Button from '../Button';
 const FeaturedJobItem = ({ job }) => {
   const { companyImage, companyName, title, jobTypes, location, salary, id } =
     job;
-
   return (
     <div className="border border-blue-300/30 p-4 flex flex-col justify-between rounded-md shadow-sm">
       <div>
         <img className="mb-3" src={companyImage} alt="" />
         <h1 className="font-semibold text-lg">{title}</h1>
         <h2 className="text-sm mb-2 text-gray-600">{companyName}</h2>
-
         <div>
           {jobTypes?.map((jobType) => (
             <button className="border py-1 px-2 mr-2 text-[#7144eb] border-[#9873FF] font-semibold text-sm rounded-sm">

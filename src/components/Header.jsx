@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom';
-import {Bars3BottomRightIcon,XMarkIcon} from '@heroicons/react/24/solid'
+import {  NavLink } from 'react-router-dom';
+import {Bars3BottomRightIcon} from '@heroicons/react/24/solid'
 // ================ HEADER DATA ============
 const headerData = [
     {
@@ -24,7 +24,7 @@ const headerData = [
 const Header = () => {
   const [showNav, setShowNav] = useState(false);
 
-    const li = headerData.map((item)=><li><NavLink to={`${item.path}`} className={({isActive})=>isActive?'active':'default'}>{item.name}</NavLink></li>)
+    const li = headerData.map((item,i)=><li><NavLink key={i} to={`${item.path}`} className={({isActive})=>isActive?'active':'default'}>{item.name}</NavLink></li>)
   return (
     <div className="w-full my-3 sticky top-0 z-10 bg-white/20 backdrop-blur-lg py-2">
       <div className="flex items-center justify-between my-container">

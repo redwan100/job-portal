@@ -72,7 +72,7 @@ const [cart, setCart] = useState([]);
             <p className="font-semibold text-lg">
               Job Responsibility:
               <span className="font-normal text-base text-gray-500 ml-1">
-                {jobs.jobDescription}
+                {jobs.jobResponsibility}
               </span>
             </p>
           </div>
