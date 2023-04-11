@@ -1,5 +1,5 @@
 import Button from './Button';
-import HeroImg from '../assets/All Images/P3OLGJ1 copy 1.png'
+import HeroImg from '../assets/images/P3OLGJ1 copy 1.png'
 import JobCategoryList from './JobCategoryList';
 
 import FeaturedJobItem from './Job/FeaturedJobItem';
@@ -19,7 +19,7 @@ const Home = () => {
 
    useEffect(() => {
      const loadData = async () => {
-       const res = await fetch(`/futured.json`);
+       const res = await fetch(`/featured.json`);
        const data = await res.json();
 
        setJobs(data);
@@ -76,7 +76,7 @@ const Home = () => {
             className="gradient mx-auto block my-8"
             onClick={() => setIsShow(true)}
           >
-            Show All
+            Show All Job
           </button>
         )}
       </section>

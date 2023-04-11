@@ -6,7 +6,6 @@ const FeaturedJobItem = ({ job }) => {
   const { companyImage, companyName, title, jobTypes, location, salary, id } =
     job;
 
-    console.log(companyImage);
   return (
     <div className="border border-blue-300/30 p-4 flex flex-col justify-between rounded-md shadow-sm">
       <div>
