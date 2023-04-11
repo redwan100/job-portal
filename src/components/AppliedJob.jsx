@@ -18,11 +18,11 @@ const AppliedJob = () => {
 
     const savedCart = [];
     for (const id in storedCart) {
-      const addedJob = jobs.find((product) => product.id == id);
-      if (addedJob) {
+      const addedProduct = jobs.find((product) => product.id == id);
+      if (addedProduct) {
         const quantity = storedCart[id];
-        addedJob.quantity = quantity;
-        savedCart.push(addedJob);
+        addedProduct.quantity = quantity;
+        savedCart.push(addedProduct);
       }
     }
     setAllJob(savedCart);
