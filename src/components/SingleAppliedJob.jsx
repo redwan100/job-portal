@@ -11,11 +11,12 @@ const SingleAppliedJob = ({
   id
 }) => {
   return (
-    <div className="border p-2 flex justify-between items-center">
+    <div className="border p-2 flex justify-between items-center rounded-md">
   
-      <div className="flex items-center gap-3">
-        <div className="w-32 h-32 bg-slate-300 grid place-content-center p-2">
-          <img src={companyImage} alt={title} />
+      <div className="flex flex-col md:flex-row  md:items-center gap-3">
+        <div className="w-32 h-32 bg-slate-300 grid place-content-center p-2 rounded-md">
+          
+          <img className="" src={companyImage} alt={title} />
         </div>
 
         {/* ========== Job Details ========= */}
@@ -25,7 +26,7 @@ const SingleAppliedJob = ({
           <small>{companyName}</small>
 
           {/* =====Buttons=====  */}
-          <div>
+          <div className="flex flex-col gap-2 sm:flex-row">
             {jobTypes.map((jobType) => (
               <button
                 type="button"
