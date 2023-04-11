@@ -5,12 +5,14 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AppliedJob, Blog, Home, Statics } from './components';
 import JobDetails from './components/Job/JobDetails';
+import ErrorPage from './components/ErrorPage';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement:<ErrorPage />,
     children: [
       {
         path: "/",

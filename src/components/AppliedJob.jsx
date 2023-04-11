@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getShoppingCart } from "../utils/fakeDb";
 import SingleAppliedJob from "./SingleAppliedJob";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
 const AppliedJob = () => {
   const [jobs, setJobs] = useState([]);
@@ -14,7 +15,7 @@ const AppliedJob = () => {
 
   useEffect(() => {
     const storedCart = getShoppingCart();
-  
+
     const savedCart = [];
     for (const id in storedCart) {
       const addedJob = jobs.find((product) => product.id == id);
@@ -27,28 +28,27 @@ const AppliedJob = () => {
     setAllJob(savedCart);
   }, [jobs]);
 
-
-  const handleFilteredItem = (e) =>{
+  const handleFilteredItem = (e) => {
     const target = e.target.value;
-    const filtered = allJob.filter((job)=>job.jobTypes[0] === target)
-    setAllJob(filtered)
-  }
+    const filtered = allJob.filter((job) => job.jobTypes[0] === target);
+    setAllJob(filtered);
+  };
 
   return (
     <div className="my-5">
       {/* =========Dropdown menu ========= */}
       <div className="relative w-max ml-auto my-4">
-        <select className="w-full p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600" onChange={handleFilteredItem}>
-        
-          <option className="text-center">
-            Filter By
+        <select
+          className="w-full p-2 text-gray-500 bg-white border rounded-md shadow-sm outline-none focus:border-indigo-600"
+          onChange={handleFilteredItem}
+        >
+          <option className="text-center flex items-center">
+            Filter By <ChevronDownIcon className="w-4" />
           </option>
           <option>Onsite</option>
           <option>Remote</option>
-          
         </select>
       </div>
-
 
       <div className="space-y-3">
         {allJob.map((job) => (
