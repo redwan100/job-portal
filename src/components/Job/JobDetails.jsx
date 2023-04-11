@@ -12,7 +12,7 @@ const JobDetails = () => {
 const [cart, setCart] = useState([]);
   useEffect(() => {
     const handleData = async () => {
-      const res = await fetch(`/public/futured.json`);
+      const res = await fetch(`/futured.json`);
       const data = await res.json();
 
       setJob(data);
