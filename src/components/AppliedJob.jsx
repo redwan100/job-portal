@@ -5,6 +5,8 @@ import SingleAppliedJob from "./SingleAppliedJob";
 const AppliedJob = () => {
   const [jobs, setJobs] = useState([]);
   const [allJob, setAllJob] = useState([]);
+  // const [filterItem, setFilterItem] = useState([])
+
   useEffect(() => {
     fetch("futured.json")
       .then((res) => res.json())
@@ -13,7 +15,7 @@ const AppliedJob = () => {
 
   useEffect(() => {
     const storedCart = getShoppingCart();
-    console.log("stored", storedCart);
+ 
     const savedCart = [];
     for (const id in storedCart) {
       console.log("id", id);
@@ -27,12 +29,30 @@ const AppliedJob = () => {
     setAllJob(savedCart);
   }, [jobs]);
 
-  console.log("all job", allJob);
+  const handleFilteredItem = (e) =>{
+    const target = e.target.value;
+    const filtered = allJob.filter((job)=>job.jobTypes[0] === target)
+    setAllJob(filtered)
+  }
+
   return (
-    <div>
+    <div className="my-5">
+      {/* =========Dropdown menu ========= */}
+      <div className="relative w-max ml-auto my-4">
+        <select className="w-full p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600" onChange={handleFilteredItem}>
+          <option className="text-center">
+            Filter By
+          </option>
+          <option>Onsite</option>
+          <option>Remote</option>
+          
+        </select>
+      </div>
+
+
       <div className="space-y-3">
         {allJob.map((job) => (
-          <SingleAppliedJob {...job}/>
+          <SingleAppliedJob key={job.id} {...job} />
         ))}
       </div>
     </div>

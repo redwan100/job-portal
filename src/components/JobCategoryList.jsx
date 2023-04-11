@@ -6,6 +6,7 @@ import {
 } from "@heroicons/react/24/solid";
 import Title from "./Title";
 import Job from "./Job/Job";
+
 let jobList = [
   {
     id: 1,

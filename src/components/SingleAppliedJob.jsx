@@ -12,6 +12,7 @@ const SingleAppliedJob = ({
 }) => {
   return (
     <div className="border p-2 flex justify-between items-center">
+  
       <div className="flex items-center gap-3">
         <div className="w-32 h-32 bg-slate-300 grid place-content-center p-2">
           <img src={companyImage} alt={title} />
