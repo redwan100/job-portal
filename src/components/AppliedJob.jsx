@@ -5,7 +5,6 @@ import SingleAppliedJob from "./SingleAppliedJob";
 const AppliedJob = () => {
   const [jobs, setJobs] = useState([]);
   const [allJob, setAllJob] = useState([]);
-  // const [filterItem, setFilterItem] = useState([])
 
   useEffect(() => {
     fetch("futured.json")
@@ -15,19 +14,19 @@ const AppliedJob = () => {
 
   useEffect(() => {
     const storedCart = getShoppingCart();
- 
+  
     const savedCart = [];
     for (const id in storedCart) {
-      console.log("id", id);
-      const addedProduct = jobs.find((product) => product.id == id);
-      if (addedProduct) {
+      const addedJob = jobs.find((product) => product.id == id);
+      if (addedJob) {
         const quantity = storedCart[id];
-        addedProduct.quantity = quantity;
-        savedCart.push(addedProduct);
+        addedJob.quantity = quantity;
+        savedCart.push(addedJob);
       }
     }
     setAllJob(savedCart);
   }, [jobs]);
+
 
   const handleFilteredItem = (e) =>{
     const target = e.target.value;
@@ -40,6 +39,7 @@ const AppliedJob = () => {
       {/* =========Dropdown menu ========= */}
       <div className="relative w-max ml-auto my-4">
         <select className="w-full p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600" onChange={handleFilteredItem}>
+        
           <option className="text-center">
             Filter By
           </option>
