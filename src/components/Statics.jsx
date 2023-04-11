@@ -75,7 +75,7 @@ const Statics = () => {
         
       </AreaChart>
     </div>
-  );
+  );                                                   
 };
 
 export default Statics;
