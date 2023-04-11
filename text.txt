@@ -1,1 +1,7 @@
 brand => SimplyHired
+Ques => when should use context api
+Ques => what is custom hook
+Ques => what is useRef
+Ques => what is useMemo
+
+

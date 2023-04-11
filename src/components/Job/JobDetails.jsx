@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {MapPinIcon, PhoneIcon,EnvelopeIcon, CurrencyDollarIcon, CalendarDaysIcon} from '@heroicons/react/24/outline'
 import { addToDb, getShoppingCart } from "../../utils/fakeDb";
+import toast from 'react-hot-toast'
+
+
+
 const JobDetails = () => {
   const dynamic = useParams();
   const [jobs, setJob] = useState([]);
@@ -41,6 +45,7 @@ const [cart, setCart] = useState([]);
         const newCart = [...cart, product];
         setCart(newCart);
         addToDb(product.id);
+        toast.success("successfully applied your job");
      };
 
 

@@ -9,3 +9,7 @@
 .active{
     @apply font-medium text-[#9873FF]
 }
+
+.my-container{
+    @apply container mx-auto w-[80%]
+}

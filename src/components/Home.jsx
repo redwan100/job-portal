@@ -72,7 +72,12 @@ const Home = () => {
         </div>
 
         {!isShow && (
-          <button className="gradient mx-auto block my-8" onClick={()=>setIsShow(true)}>Show All</button>
+          <button
+            className="gradient mx-auto block my-8"
+            onClick={() => setIsShow(true)}
+          >
+            Show All
+          </button>
         )}
       </section>
     </div>
